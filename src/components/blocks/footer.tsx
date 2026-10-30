@@ -76,7 +76,7 @@ export function Footer() {
         </ul>
       </nav>
 
-      <div className="text-primary mt-10 w-full md:mt-14 lg:mt-20">
+      <div className="text-primary/25 dark:text-primary/15 mt-10 w-full md:mt-14 lg:mt-20">
         <svg
           width="1570"
           height="293"
@@ -101,7 +101,7 @@ export function Footer() {
               gradientUnits="userSpaceOnUse"
             >
               <stop stopColor="currentColor" />
-              <stop offset="1" stopColor="#F8F8F8" stopOpacity="0.41" />
+              <stop offset="1" stopColor="currentColor" stopOpacity="0" />
             </linearGradient>
           </defs>
         </svg>
