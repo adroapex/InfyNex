@@ -7,9 +7,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import { ChevronRight } from "lucide-react";
-import { FaGithub } from "react-icons/fa6";
+// import { FaGithub } from "react-icons/fa6";
 
-import { ThemeToggle } from "@/components/theme-toggle";
+// import { ThemeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
@@ -21,26 +21,38 @@ import {
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
 
-const ITEMS = [
-  {
-    label: "Features",
-    href: "#features",
-    dropdownItems: [
-      {
-        title: "Modern product teams",
-        href: "/#feature-modern-teams",
-        description:
-          "Mainline is built on the habits that make the best product teams successful",
-      },
-      {
-        title: "Resource Allocation",
-        href: "/#resource-allocation",
-        description: "Mainline your resource allocation and execution",
-      },
-    ],
-  },
+interface NavItem {
+  label: string;
+  href: string;
+  dropdownItems?: {
+    title: string;
+    href: string;
+    description: string;
+  }[];
+}
+
+const ITEMS: NavItem[] = [
+  // {
+  //   label: "Features",
+  //   href: "#features",
+  //   dropdownItems: [
+  //     {
+  //       title: "Modern product teams",
+  //       href: "/#feature-modern-teams",
+  //       description:
+  //         "Mainline is built on the habits that make the best product teams successful",
+  //     },
+  //     {
+  //       title: "Resource Allocation",
+  //       href: "/#resource-allocation",
+  //       description: "Mainline your resource allocation and execution",
+  //     },
+  //   ],
+  // },
+  { label: "Services", href: "/services" },
+  { label: "Sourcing", href: "/sourcing" },
   { label: "About Us", href: "/about" },
-  { label: "Pricing", href: "/pricing" },
+  // { label: "Pricing", href: "/pricing" },
   { label: "FAQ", href: "/faq" },
   { label: "Contact", href: "/contact" },
 ];
@@ -120,19 +132,19 @@ export const Navbar = () => {
 
         {/* Auth Buttons */}
         <div className="flex items-center gap-2.5">
-          <ThemeToggle />
-          <Link href="/login" className="max-lg:hidden">
+          {/* <ThemeToggle /> */}
+          <Link href="/contact" className="max-lg:hidden">
             <Button variant="outline">
-              <span className="relative z-10">Login</span>
+              <span className="relative z-10">Contact Us</span>
             </Button>
           </Link>
-          <a
+          {/* <a
             href="https://github.com/shadcnblocks/mainline-nextjs-template"
             className="text-muted-foreground hover:text-foreground transition-colors"
           >
             <FaGithub className="size-4" />
             <span className="sr-only">GitHub</span>
-          </a>
+          </a> */}
 
           {/* Hamburger Menu Button (Mobile Only) */}
           <button
@@ -234,7 +246,7 @@ export const Navbar = () => {
               </Link>
             ),
           )}
-        </nav>
+        </nav>  
       </div>
     </section>
   );
