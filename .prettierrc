@@ -6,7 +6,6 @@
   "singleQuote": false,
   "printWidth": 80,
   "plugins": ["prettier-plugin-tailwindcss"],
-  "organizeImportsSkipDestructiveCodeActions": true,
   "overrides": [
     {
       "files": ["src/styles/globals.css"],

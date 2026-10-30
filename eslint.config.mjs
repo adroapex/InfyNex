@@ -1,31 +1,30 @@
-import { FlatCompat } from "@eslint/eslintrc";
-import { dirname } from "path";
-import { fileURLToPath } from "url";
+import js from "@eslint/js";
+import nextConfig from "eslint-config-next";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-  recommendedConfig: {},
-});
+const tsPlugin = nextConfig.find((c) => c.name === "next/typescript")
+  ?.plugins?.["@typescript-eslint"];
 
 const eslintConfig = [
+  js.configs.recommended,
+  ...nextConfig,
   {
-    ignores: ["node_modules/**"],
+    ignores: ["node_modules/**", ".next/**"],
   },
-  ...compat.extends(
-    "next/core-web-vitals",
-    "next/typescript",
-    "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:import/recommended",
-    "plugin:import/typescript",
-    "next",
-    "plugin:jsx-a11y/recommended",
-  ),
   {
+    plugins: {
+      ...(tsPlugin ? { "@typescript-eslint": tsPlugin } : {}),
+    },
     rules: {
+      "no-undef": "off",
+      "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": [
+        "warn",
+        {
+          argsIgnorePattern: "^_",
+          varsIgnorePattern: "^_",
+        },
+      ],
+      "react-hooks/set-state-in-effect": "off",
       "@next/next/no-html-link-for-pages": "off",
       "react/jsx-key": "off",
       "react/display-name": "off",
