@@ -57,7 +57,7 @@ export default function ComingSoon() {
 
             {/* Description */}
             <p className="text-neutral-200 text-base md:text-lg leading-relaxed mb-10 font-medium drop-shadow-md">
-              InfyNex Industrial Solutions is upgrading its digital infrastructure.
+              InfyNex Electric Industries is upgrading its digital infrastructure.
               We are building a robust platform to serve you better.
             </p>
 
@@ -77,7 +77,7 @@ export default function ComingSoon() {
           
           {/* Footer */}
           <div className="absolute bottom-8 left-6 md:left-64 text-xs text-neutral-400 font-mono tracking-widest uppercase">
-            © 2025 InfyNex Inc.
+            © 2026 InfyNex Electric Industries.
           </div>
         </div>
 
