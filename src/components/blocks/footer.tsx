@@ -31,7 +31,7 @@ export function Footer() {
         </p>
         <div>
           <Button size="lg" className="mt-4" asChild>
-            <a href="https://infynex.org/contact" target="_blank" rel="noopener noreferrer">
+            <a href="/contact" target="_blank" rel="noopener noreferrer">
               Contact Us
             </a>
           </Button>

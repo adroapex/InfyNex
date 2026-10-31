@@ -50,7 +50,7 @@ export const Hero = () => {
 
           <div className="mt-8 flex flex-wrap items-center gap-4 lg:flex-nowrap">
             <Button asChild>
-              <a href="https://infynex.org/contact" target="_blank" rel="noopener noreferrer">
+              <a href="/contact" target="_blank" rel="noopener noreferrer">
                 Contact Us
               </a>
             </Button>
