@@ -102,26 +102,26 @@ export const metadata: Metadata = {
     shortcut: [{ url: "/favicon/favicon.ico" }],
   },
   openGraph: {
-    title: "Mainline - Modern Next.js Template",
+  title: "InfyNex Electrical Industries",
     description:
-      "A modern Next.js template built with shadcn/ui, Tailwind & MDX. Open source - MIT License.",
-    siteName: "Mainline",
+      "Building the Future of Electrical Solutions",
+    siteName: "InfyNex ",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Mainline - Modern Next.js Template",
+        alt: "InfyNex Electrical Industries",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mainline - Modern Next.js Template",
+    title: "InfyNex Electrical Industries",
     description:
-      "A modern Next.js template built with shadcn/ui, Tailwind & MDX. Open source - MIT License.",
+      "Building the Future of Electrical Solutions",
     images: ["/og-image.jpg"],
-    creator: "@ausrobdev",
+    creator: "@imuric",
   },
 };
 
