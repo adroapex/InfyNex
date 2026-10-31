@@ -1,4 +1,4 @@
-import Image from "next/image";
+// import Image from "next/image";
 
 import {
   ArrowRight,
@@ -40,8 +40,8 @@ export const Hero = () => {
       <div className="container flex flex-col justify-between gap-8 md:gap-14 lg:flex-row lg:gap-20">
         {/* Left side - Main content */}
         <div className="flex-1">
-          <h1 className="text-foreground max-w-160 text-3xl tracking-tight md:text-4xl lg:text-5xl xl:whitespace-nowrap">
-            InfyNex
+          <h1 className="text-foreground max-w-xl text-3xl tracking-tight md:text-4xl lg:text-5xl text-balance">
+            Building the Future of Electrical Solutions
           </h1>
 
           <p className="text-muted-foreground text-1xl mt-5 md:text-3xl">
@@ -99,7 +99,7 @@ export const Hero = () => {
         </div>
       </div>
 
-      <div className="mt-12 max-lg:ml-6 max-lg:h-[550px] max-lg:overflow-hidden md:mt-20 lg:container lg:mt-24">
+      {/* <div className="mt-12 max-lg:ml-6 max-lg:h-[550px] max-lg:overflow-hidden md:mt-20 lg:container lg:mt-24">
         <div className="relative h-[793px] w-full">
           <Image
             src="/hero.webp"
@@ -108,7 +108,7 @@ export const Hero = () => {
             className="rounded-2xl object-cover object-left-top shadow-lg max-lg:rounded-tr-none"
           />
         </div>
-      </div>
+      </div> */}
     </section>
   );
 };
