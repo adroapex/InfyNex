@@ -1,13 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" width="16" height="18"><svg width="16" height="18" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g id="SvgjsG1023" clip-path="url(#clip0_105_745)">
-<path id="SvgjsPath1022" d="M2.94722 4.02589L6.38471 1.95032C7.37805 1.35054 8.62195 1.35054 9.61529 1.95033L13.0528 4.02596C13.9898 4.59173 14.5625 5.60653 14.5625 6.70111V11.3101C14.5625 12.4064 13.988 13.4227 13.0485 13.9878L9.61392 16.0542C8.62116 16.6514 7.37944 16.6504 6.38764 16.0515L2.94719 13.974C2.01019 13.4083 1.4375 12.3935 1.4375 11.2989V6.70106C1.4375 5.60648 2.0102 4.59168 2.94722 4.02589Z" stroke="black" stroke-width="1.875" stroke-linejoin="bevel"></path>
-<path id="SvgjsPath1021" d="M12.6875 9C12.6875 6.41117 10.5888 4.3125 8 4.3125C5.41116 4.3125 3.3125 6.41117 3.3125 9C3.3125 11.5888 5.41116 13.6875 8 13.6875C10.5888 13.6875 12.6875 11.5888 12.6875 9Z" fill="black"></path>
-</g>
-<defs>
-<clipPath id="SvgjsClipPath1020">
-<rect width="15" height="17.5" fill="white" transform="translate(0.5 0.25)"></rect>
-</clipPath>
-</defs>
-</svg><style>@media (prefers-color-scheme: light) { :root { filter: none; } }
-@media (prefers-color-scheme: dark) { :root { filter: none; } }
-</style></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 129 247" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:affinity="https://www.affinity.studio/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1,0,0,1,0.020152,0.000001)">
+        <path d="M116.43,0L86.05,0L21.05,66.83C18.797,69.128 17.534,72.222 17.534,75.44C17.534,82.186 23.084,87.738 29.83,87.74L60.22,87.74L125.22,20.91C127.473,18.612 128.736,15.518 128.736,12.3C128.736,5.552 123.184,-0 116.436,-0C116.434,-0 116.432,-0 116.43,0Z" style="fill:rgb(0,171,189);fill-rule:nonzero;"/>
+        <path d="M90.8,87.74L60.22,87.74L3.5,146.1C1.245,148.397 -0.02,151.491 -0.02,154.71C-0.02,161.452 5.528,167 12.27,167C12.287,167 12.303,167 12.32,167L42.9,167L99.62,108.6C101.851,106.306 103.101,103.23 103.101,100.03C103.101,93.288 97.553,87.74 90.811,87.74C90.807,87.74 90.804,87.74 90.8,87.74Z" style="fill:rgb(0,171,189);fill-rule:nonzero;"/>
+        <path d="M50.91,167L43,167L3,246.19L59.72,187.83C61.925,185.539 63.158,182.48 63.158,179.3C63.158,172.572 57.638,167.028 50.91,167Z" style="fill:rgb(0,171,189);fill-rule:nonzero;"/>
+    </g>
+</svg>

@@ -9,12 +9,11 @@ import { DashedLine } from "@/components/dashed-line";
 
 const contactInfo = [
   {
-    title: "Corporate office",
+    title: "Address",
     content: (
       <p className="text-muted-foreground mt-3">
-        1 Carlsberg Close
-        <br />
-        1260 Hillview, Australia
+        2912, Flat No. 1001, Dattai Niwas, Sangarsh Colony, Shirwal, Satara,
+        Maharashtra, India - 412801
       </p>
     ),
   },
@@ -23,21 +22,21 @@ const contactInfo = [
     content: (
       <div className="mt-3">
         <div>
-          <p className="">Careers</p>
+          <p className="">Info</p>
           <Link
-            href="mailto:careers@example.com"
+            href="mailto:info@infynex.org"
             className="text-muted-foreground hover:text-foreground"
           >
-            careers@example.com
+            info@infynex.org
           </Link>
         </div>
         <div className="mt-1">
-          <p className="">Press</p>
+          <p className="">office</p>
           <Link
-            href="mailto:press@example.com"
+            href="mailto:office@infynex.org"
             className="text-muted-foreground hover:text-foreground"
           >
-            press@example.com
+            office@infynex.org
           </Link>
         </div>
       </div>
@@ -71,9 +70,9 @@ export default function Contact() {
         <h1 className="text-center text-2xl font-semibold tracking-tight md:text-4xl lg:text-5xl">
           Contact us
         </h1>
-        <p className="text-muted-foreground mt-4 text-center leading-snug font-medium lg:mx-auto">
+        {/* <p className="text-muted-foreground mt-4 text-center leading-snug font-medium lg:mx-auto">
           Hopefully this form gets through our spam filters.
-        </p>
+        </p> */}
 
         <div className="mt-10 flex justify-between gap-8 max-sm:flex-col md:mt-14 lg:mt-20 lg:gap-12">
           {contactInfo.map((info, index) => (

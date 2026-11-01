@@ -1,4 +1,7 @@
 "use client";
+
+import { useState } from "react";
+
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Check } from "lucide-react";
 import { motion } from "motion/react";
@@ -8,7 +11,7 @@ import * as z from "zod";
 
 import { serverAction } from "@/actions/server-action";
 import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
+// import { Checkbox } from "@/components/ui/checkbox";
 import {
   Form,
   FormControl,
@@ -18,19 +21,22 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+// import {
+//   Select,
+//   SelectContent,
+//   SelectItem,
+//   SelectTrigger,
+//   SelectValue,
+// } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { formSchema } from "@/lib/form-schema";
 
 type Schema = z.infer<typeof formSchema>;
 
 export function ContactForm() {
+  const [serverError, setServerError] = useState<string | null>(null);
+  const [isSuccess, setIsSuccess] = useState(false);
+
   const form = useForm<Schema>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -42,21 +48,44 @@ export function ContactForm() {
       agree: false,
     } as unknown as Schema,
   });
+
   const formAction = useAction(serverAction, {
     onSuccess: () => {
-      // TODO: show success message
+      setIsSuccess(true);
+      setServerError(null);
       form.reset();
     },
-    onError: () => {
-      // TODO: show error message
+    onError: ({ error }) => {
+      setIsSuccess(false);
+      const msg = error.serverError || "";
+      if (
+        msg &&
+        !msg.includes("@") &&
+        !msg.includes("resend.com") &&
+        !msg.includes("testing emails")
+      ) {
+        setServerError(msg);
+      } else {
+        setServerError(
+          "Unable to send message at this time. Please try again later or reach out to contact@infynex.org.",
+        );
+      }
     },
   });
-  const handleSubmit = form.handleSubmit(async (data: Schema) => {
-    formAction.execute(data);
-  });
 
-  const { isExecuting, hasSucceeded } = formAction;
-  if (hasSucceeded) {
+  const handleSubmit = form.handleSubmit(
+    async (data: Schema) => {
+      setServerError(null);
+      formAction.execute(data);
+    },
+    () => {
+      // Validation errors are displayed automatically via FormMessage under each field
+    },
+  );
+
+  const { isExecuting, hasSucceeded, reset } = formAction;
+
+  if (isSuccess || hasSucceeded) {
     return (
       <div className="w-full gap-2 rounded-md border p-2 sm:p-5 md:p-8">
         <motion.div
@@ -74,7 +103,7 @@ export function ContactForm() {
               stiffness: 500,
               damping: 15,
             }}
-            className="mx-auto mb-4 flex w-fit justify-center rounded-full border p-2"
+            className="border-primary/20 bg-primary/10 text-primary mx-auto mb-4 flex w-fit justify-center rounded-full border p-3"
           >
             <Check className="size-8" />
           </motion.div>
@@ -82,8 +111,22 @@ export function ContactForm() {
             Thank you
           </h2>
           <p className="text-muted-foreground text-center text-lg text-pretty">
-            Form submitted successfully, we will get back to you soon
+            Form submitted successfully, we will get back to you soon.
           </p>
+          <div className="mt-6 flex justify-center">
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => {
+                setIsSuccess(false);
+                setServerError(null);
+                reset();
+                form.reset();
+              }}
+            >
+              Send another message
+            </Button>
+          </div>
         </motion.div>
       </div>
     );
@@ -98,74 +141,58 @@ export function ContactForm() {
         <FormField
           control={form.control}
           name="name"
-          rules={{ required: true }}
           render={({ field }) => (
             <FormItem className="w-full">
-              <FormLabel>Full name * </FormLabel>
+              <FormLabel>Full name *</FormLabel>
               <FormControl>
                 <Input
                   type="text"
-                  value={field.value}
-                  onChange={(e) => {
-                    const val = e.target.value;
-                    field.onChange(val);
-                  }}
                   placeholder="First and last name"
+                  {...field}
                 />
               </FormControl>
-
               <FormMessage />
             </FormItem>
           )}
         />
+
         <FormField
           control={form.control}
           name="email"
-          rules={{ required: true }}
           render={({ field }) => (
             <FormItem className="w-full">
-              <FormLabel>Email address * </FormLabel>
+              <FormLabel>Email address *</FormLabel>
               <FormControl>
                 <Input
-                  type="text"
-                  value={field.value}
-                  onChange={(e) => {
-                    const val = e.target.value;
-                    field.onChange(val);
-                  }}
+                  type="email"
                   placeholder="me@company.com"
+                  {...field}
                 />
               </FormControl>
-
               <FormMessage />
             </FormItem>
           )}
         />
+
         <FormField
           control={form.control}
           name="company"
-          rules={{ required: false }}
           render={({ field }) => (
             <FormItem className="w-full">
-              <FormLabel>Company name </FormLabel>
+              <FormLabel>Company name</FormLabel>
               <FormControl>
                 <Input
                   type="text"
-                  value={field.value}
-                  onChange={(e) => {
-                    const val = e.target.value;
-                    field.onChange(val);
-                  }}
                   placeholder="Company name"
+                  {...field}
                 />
               </FormControl>
-
               <FormMessage />
             </FormItem>
           )}
         />
 
-        <FormField
+        {/* <FormField
           control={form.control}
           rules={{ required: false }}
           name="employees"
@@ -198,28 +225,27 @@ export function ContactForm() {
               </FormItem>
             );
           }}
-        />
+        /> */}
 
         <FormField
           control={form.control}
           name="message"
-          rules={{ required: true }}
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Your message * </FormLabel>
+              <FormLabel>Your message *</FormLabel>
               <FormControl>
                 <Textarea
-                  {...field}
                   placeholder="Write your message"
-                  className="resize-none"
+                  className="min-h-[120px] resize-none"
+                  {...field}
                 />
               </FormControl>
-
               <FormMessage />
             </FormItem>
           )}
         />
-        <FormField
+
+        {/* <FormField
           control={form.control}
           rules={{ required: true }}
           name="agree"
@@ -239,9 +265,20 @@ export function ContactForm() {
               </div>
             </FormItem>
           )}
-        />
-        <div className="flex w-full items-center justify-end pt-3">
-          <Button className="rounded-lg" size="sm">
+        /> */}
+
+        <div className="flex w-full flex-col items-end gap-3 pt-3">
+          {serverError && (
+            <div className="w-full rounded-md border border-destructive/40 bg-destructive/10 p-3 text-sm text-destructive">
+              {serverError}
+            </div>
+          )}
+          <Button
+            type="submit"
+            className="rounded-lg"
+            size="sm"
+            disabled={isExecuting}
+          >
             {isExecuting ? "Submitting..." : "Submit"}
           </Button>
         </div>

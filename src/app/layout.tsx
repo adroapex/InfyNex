@@ -63,11 +63,10 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "Mainline - Modern Next.js Template",
-    template: "%s | Mainline",
+    default: "InfyNex Electrical Industries",
+    template: "%s | InfyNex",
   },
-  description:
-    "A modern Next.js template built with shadcn/ui, Tailwind & MDX. Open source - MIT License.",
+  description: "Building the Future of Electrical Solutions",
   keywords: [
     "Next.js",
     "nextjs template",
@@ -102,9 +101,8 @@ export const metadata: Metadata = {
     shortcut: [{ url: "/favicon/favicon.ico" }],
   },
   openGraph: {
-  title: "InfyNex Electrical Industries",
-    description:
-      "Building the Future of Electrical Solutions",
+    title: "InfyNex Electrical Industries",
+    description: "Building the Future of Electrical Solutions",
     siteName: "InfyNex ",
     images: [
       {
@@ -118,8 +116,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "InfyNex Electrical Industries",
-    description:
-      "Building the Future of Electrical Solutions",
+    description: "Building the Future of Electrical Solutions",
     images: ["/og-image.jpg"],
     creator: "@imuric",
   },
